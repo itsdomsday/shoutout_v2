@@ -42,6 +42,7 @@
                             <h5 class="fw-bold"><a href="{{ route('profile', $shout->user->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ $shout->user->name }}</a><a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
                                 <!-- Dropdown menu for each shout -->
                                 <ul class="dropdown-menu">
+                                    <li><a href="{{ route('viewshout', $shout->id) }}" class="dropdown-item">View Shout</a></li>
                                     <li><a href="{{ route('profile', $shout->user->id) }}" class="dropdown-item">View Profile</a></li>
 
                                     <!-- If shout belongs to active user, delete function present -->
