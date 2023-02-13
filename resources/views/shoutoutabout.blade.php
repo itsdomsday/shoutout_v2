@@ -47,6 +47,16 @@
             margin-top: 100px;
         }
 
+        #main2{
+            width: 1130px;
+            max-width: 95%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
         #about{
             color: #E0DDFA;
             font-size: 80px;
@@ -285,10 +295,24 @@
     <section class="endbg">
          <div class="container reveal">
             <p>Our community is evolving,</p>
-            <p style="text-align: left;" id="endbgp">so are we</p>
+            <p style="text-align: left;" id="endbgp"> so are we</p>
     </section>
 
+    <div class="main">
+            <div class="about-text reveal">
+                <h2><span>Grow</span> with us</h2>
+                <h3>Share and grow your brand with our diverse, global community.</h3>
+            </div>
+            <img src="https://images.pexels.com/photos/6551313/pexels-photo-6551313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="overflow-y: hidden" alt="" class="reveal">
+        </div>
 
+        <div class="main">
+            <p style="color: White; Font-size: 50px; margin-top: 10%">Download for iOS/Android.</p>
+        </div>     
+        <div class="main" id="main2" style="margin-top: .1%; margin-bottom: 5%">
+            <img src="./img/apple (1).png" style="width: auto; height: 50px; border-radius: 5%;" alt="">
+            <img src="./img/google (1).png" style="width: auto; height: 50px; border-radius: 5%; margin-left : 10px;" alt="">
+        </div>
 
     <script type="text/javascript">
         window.addEventListener('scroll', reveal);
