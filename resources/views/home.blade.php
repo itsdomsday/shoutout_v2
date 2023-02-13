@@ -4,24 +4,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <!-- Sidebar -->
-        <div class="col-md-3">
-            <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                <div class="card-header">Welcome, <b><a href="{{ route('profile', Auth::user()->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ Auth::user()->name }}</a></b>!</div>
-                <div class="card-body">
-
-                </div>
-            </div>
-        </div>
-        <!--main content  -->
+        @include('layouts.sidebar')
         <div class="col-md-6">
             @if (session('success'))
             <div class="alert alert-primary" role="alert">
                 {{ session('success') }}
             </div>
             @endif
-            <!-- write shout -->
             <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                <div class="card-header fw-bold">Latest Shouts</div>
                 <div class="card-body">
                     <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                         <div class="card-body">
@@ -34,8 +24,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- recent shouts -->
                 <div class="card-body">
+                <div class="card-header fw-bold">Latest Shouts</div>
                     @foreach($shouts as $shout)
                     <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                         <div class="card-body">
@@ -84,25 +74,7 @@
                 </div>
             </div>
         </div>
-        
-        <div class="col-md-3">
-            <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-
-                    <footer>
-                        <hr>
-                        <p class="text-center"><small>© 2023 ShoutOut</small></p>
-                    </footer>
-                </div>
-            </div>
-        </div>
+       @include('layouts.trending')
     </div>
 </div>
 @endsection
