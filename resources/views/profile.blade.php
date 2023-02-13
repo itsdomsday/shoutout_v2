@@ -3,26 +3,24 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-3">
-            <div class="card" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                <div class="card-header">Welcome, <b><a href="{{ route('profile', Auth::user()->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ Auth::user()->name }}</a></b>!</div>
-                <div class="card-body">
-
-                </div>
-            </div>
-        </div>
+        @include('layouts.sidebar')
         <div class="col-md-6">
             <div class="card" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                <div class="card-header p-5">
-                    <h1 class="fw-bold" style="color: #E0DDFA;">{{ $user->name }}</h1>
+                <div class="card">
+                <img src="https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg" class="img-fluid" alt="Responsive image"style=''>
+                </div>
+                <div class="card-body p-5">
+                <img src="https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" class="rounded-circle float-left img-thumbnail" alt="..." style='width: 100px; height: 100px;'>
+                    <h1 class="fw-bold pt-3" style="color: #E0DDFA;">{{ $user->name }}</h1>
                     <p style="color: #E0DDFA;">{{ $user->email }}</p>
                     <span class="badge text-bg-dark">Joined {{ $user->created_at->diffForHumans() }}</span>
                     <p class="lead mt-3 mb-4" style="color: #E0DDFA;">
-                        Photos
+                        bios
                     </p>
                     <hr />
                     <a href="#" class="btn m-1 float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">View Photos →</a>
                 </div>
+                <div class="card" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                 <div class="card-body p-5">
                     <h1 class="fw-bold mb-5" style="color: #E0DDFA;">{{ $user->name }}'s shouts</h1>
                     @if (session('success'))
@@ -61,21 +59,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-
-                    <footer>
-                        <hr>
-                        <p class="text-center"><small>© 2023 ShoutOut</small></p>
-                    </footer>
+                </div>
+                    @include('layouts.trending')
                 </div>
             </div>
         </div>
