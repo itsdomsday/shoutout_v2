@@ -26,12 +26,17 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/profile/{id}', [HomeController::class, 'profile'])->name('profile');
 
+
 //Shout
-Route::post('/createshout', [ShoutController::class, 'create'])->name('createshout');
-Route::get('/deleteshout/{id}', [ShoutController::class, 'delete'])->name('deleteshout');
+Route::post('/post_shout', [ShoutController::class, 'post_shout'])->name('post_shout');
+Route::post('/post_shoutpf', [ShoutController::class, 'post_shoutpf'])->name('post_shoutpf');
+Route::get('/del_shout/{id}', [ShoutController::class, 'del_shout'])->name('del_shout');
+Route::get('/del_shoutpf/{id}', [ShoutController::class, 'del_shoutpf'])->name('del_shoutpf');
 
 //Comment
-Route::post('/createcomment', [CommentController::class, 'create'])->name('createcomment');
+Route::post('/post_com', [CommentController::class, 'post_com'])->name('post_com');
+Route::post('/post_compf', [CommentController::class, 'post_compf'])->name('post_compf');
 
 //Plus
-Route::post('/createplus', [PlusController::class, 'create'])->name('createplus');
+Route::post('/plus_one', [PlusController::class, 'plus_one'])->name('plus_one');
+Route::post('/plus_onepf', [PlusController::class, 'plus_onepf'])->name('plus_onepf');
