@@ -12,12 +12,14 @@
                 </div>
             </div>
         </div>
+        <!--main content  -->
         <div class="col-md-6">
             @if (session('success'))
             <div class="alert alert-primary" role="alert">
                 {{ session('success') }}
             </div>
             @endif
+            <!-- write shout -->
             <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                 <div class="card-header fw-bold">Latest Shouts</div>
                 <div class="card-body">
@@ -32,6 +34,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- recent shouts -->
                 <div class="card-body">
                     @foreach($shouts as $shout)
                     <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
@@ -81,6 +84,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="col-md-3">
             <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                 <div class="card-header">{{ __('Dashboard') }}</div>
