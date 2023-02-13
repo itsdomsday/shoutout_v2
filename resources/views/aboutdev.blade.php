@@ -116,7 +116,7 @@
             opacity: 1;
         }
 
-        @media all and (max-width: 450px){
+        @media all and (max-width: 990px){
             .about-text{
                 font-size: 10px;
             }
@@ -125,12 +125,19 @@
             }
 
             .about-text p{
-                font-size: 10px;
+                font-size: 20px;
                 margin-left: 10px;
             }
+        }
 
-            *{
-                background: #151419;
+        @media all and (max-width: 500px){
+            .about img{
+                overflow: hidden;
+            }
+
+            .about-text p{
+                font-size: 20px;
+                margin-left: 10px;
             }
         }
     </style>
@@ -138,7 +145,7 @@
 <body>
     <section class="about">
         <div id="about"><h1 class="reveal">About Developers</h1></div>
-        <div class="main"  style="margin-top: 200px;">
+        <div class="main"  style="margin-top: 100px;">
             <img src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t1.6435-9/120884589_3437139343010929_1813403520474313023_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHreeEJSpeuDjEv2kgA0NfTTccbERRTfOFNxxsRFFN84S240eYfGm3wLNlnNaxhIEQPR-hQo_-9SVK0_g7AIZB9&_nc_ohc=2ioHo3n4JfcAX9jlmK_&tn=PG8xZUVhGYfxbvTx&_nc_ht=scontent.fmnl4-3.fna&oh=00_AfBVwsjPEWwCskKK4yPLXcFjX1fogrzhNZHAd9yMeEz_yw&oe=64104DBF" alt="" class="reveal">
             <div class="about-text reveal">
                 <h5 id="name">Ron Fortuno</h5>
