@@ -36,6 +36,8 @@ Route::get('/del_shoutpf/{id}', [ShoutController::class, 'del_shoutpf'])->name('
 //Comment
 Route::post('/post_com', [CommentController::class, 'post_com'])->name('post_com');
 Route::post('/post_compf', [CommentController::class, 'post_compf'])->name('post_compf');
+Route::get('/del_com/{id}', [CommentController::class, 'del_com'])->name('del_com');
+Route::get('/del_compf/{id}', [CommentController::class, 'del_compf'])->name('del_compf');
 
 //Plus
 Route::post('/plus_one', [PlusController::class, 'plus_one'])->name('plus_one');

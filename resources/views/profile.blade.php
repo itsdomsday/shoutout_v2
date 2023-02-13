@@ -97,7 +97,25 @@
                                 <!-- Display comment per shout -->
                                 @foreach($shout->comment as $comment)
                                 <div class="card px-2 pt-2 mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                                    <small><a href="{{ route('profile', $comment->user->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ $comment->user->name }}</a><small class="float-end fw-light">{{ $comment->created_at->diffForHumans() }}</small></small>
+                                    <small><a href="{{ route('profile', $comment->user->id) }}" style="text-decoration: none; color: #E0DDFA;"><strong>{{ $comment->user->name }}</strong></a>
+                                        <small class="fw-light">{{ $comment->created_at->diffForHumans() }}</small>
+
+                                        <a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
+
+                                        <!-- Dropdown menu for each comment -->
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{{ route('profile', $comment->user->id) }}" class="dropdown-item">View Profile</a></li>
+
+                                            <!-- If comment belongs to active user, delete function present -->
+                                            @if ($comment->user_id == Auth::user()->id)
+                                            <li><a href="{{ route('del_compf', $comment->id) }}" class="dropdown-item">Delete</a></li>
+                                            @endif
+                                            <!-- End -->
+
+                                        </ul>
+                                    </small>
+                                    <!-- End -->
+
                                     <small>
                                         <p>{{ $comment->comment }}</p>
                                     </small>
