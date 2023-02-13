@@ -4,101 +4,312 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <title>ShoutOut</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+        body{
+            
+            background: #151419;
+        }
+
         *{
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-            background: #151419;
+            font-family: 'Roboto Slab', serif;
         }
-
-        .hero{
-            height: 100vh;
+        .about{
             width: 100%;
-            background-repeat: no-repeat;
-            background: cover;
-            background-position: center;
-            background-size: 100%;
+            padding: 78px 0px;
+           }
+
+        .about img{
+            height: auto;
+            width: 420px;
+            border-radius: 5px;
         }
 
-        nav{
+        .about-text{
+            width: 550px;
+            color: #E0DDFA;
+        }
+
+        .main{
+            width: 1130px;
+            max-width: 95%;
+            margin: 0 auto;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding-top: 45px;
-            padding-left: 8%;
-            padding-right: 8%;
+            justify-content: space-around;
+            margin-top: 100px;
         }
 
-        .logo{
-            color: white;
-            font-size: 35px;
-            letter-spacing: 1px;
-            cursor: pointer;
+        #about{
+            color: #E0DDFA;
+            font-size: 80px;
+            text-transform: capitalize;
+            margin-bottom: 70px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
         }
-        
+
+        .about-text h4{
+            color: #E0DDFA;
+            font-size: 25px;
+            text-transform: capitalize;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .about-text h5{
+            color: #E0DDFA;
+            font-size: 25px;
+            text-transform: capitalize;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .about-text h2{
+            color: #E0DDFA;
+            font-size: 50px;
+            margin-top: 10%;
+            letter-spacing: 5px;
+        }
+
         span{
             color: #634BFF;
         }
 
-        nav ul li{
-            list-style-type: none;
-            display: inline-block;
-            padding: 10px 25px;
-        }
-
-        nav ul li a{
+        .about-text p{
             color: #E0DDFA;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: capitalize;
+            font-size: 100px;
         }
 
-        nav ul li a:hover{
-            color: #634BFF;
-            transition: .4s;
+        .section-1{
+            width: 99.1vw;
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+            background-image: url(./img/pexels-pixabay-207896.jpg); 
+            background-attachment: fixed;
         }
 
-        .btn{
-            background-color: #634BFF;
-            color: white;
-            text-decoration: none;
-            border: 2px solid transparent;
-            font-weight: bold;
-            padding: 10px 25px;
-            border-radius: 30px;
-            transition: transform .4s;
+        .section-1 h1{
+            display: flex;
         }
-        
-        .btn:hover{
-            transform: scale(1.2);
-            background: #634BFF;
-            border: 2px solid #634BFF;
-            cursor: pointer;
-            color: white;
+
+        .section-1 p{
+            color: #E0DDFA;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 80px;
+            margin-top: 10%;
         }
+
+        .reveal{
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: all 2s ease;
+        }
+
+        .reveal.active{
+            transform: translateY(0px);
+            opacity: 1;
+        }
+
+        @media all and (max-width: 1500px){
+            .about-text{
+                font-size: 50px;
+                margin-top: 50px;
+            }
+            .about img{
+                overflow: hidden;
+                margin-top: 50px;
+            }
+
+            .about-text p{
+                font-size: 50px;
+                margin-left: 10px;
+            }
+
+            .section-1 p{
+                font-size: 50px;
+                margin-top: 50px;
+        }  
+           .section-1{
+                width: 100vw;
+        }
+
+            .endbg p{ 
+                font-size: 50px;
+                margin-top: 50%;
+                }
+
+                #endbgp{
+                margin-top: 20%
+            }
+            }
+            
+        @media all and (max-width: 500px){
+            .about-text{
+                font-size: 20px;
+                margin-top: 10px;
+            }
+            .about img{
+                overflow: hidden;
+                margin-top: 10px;
+            }
+
+            .about-text p{
+                font-size: 20px;
+                margin-left: 10px;
+            }
+
+            .section-1 p{
+                font-size: 20px;
+                margin-top: 10px;
+             }
+
+            .section-1{
+                 width: 100vw;
+                 color: #E0DDFA;
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+             }
+
+             .endbg p{ 
+                font-size: 50px;
+                margin-top: 50%;
+            }
+
+            #endbgp{
+                margin-top: 20%
+            }
+                
+            }
+
+            
+            .endbg {
+        	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	        background-size: 400% 400%;
+	        animation: gradient 15s ease infinite;
+            color: #E0DDFA;
+	        height: 80vh;
+            width: 100vw;
+            text-align: right; 
+            margin-right: 20px;
+            font-size: 150px; 
+            max-width: 100%;
+            overflow-x: hidden;
+            }
+
+            @keyframes gradient {
+	        0% {
+		    background-position: 0% 50%;
+	        }
+	        50% {
+		    background-position: 100% 50%;
+	        }
+	        100% {
+		    background-position: 0% 50%;
+        	}
+            }
+
     </style>
 </head>
 <body>
-    <div class="hero">
-        <nav>
-            <h2 class="logo">Shout<span>Out</span></h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-            <a href="#" class="btn">Subscribe</a>
-        </nav>
-
-        <div class="content">
-            <h4>Hello, my name is</h4>
+    <section class="about">
+        <div id="about"><h1 class="reveal">About Us</h1></div>
+        <div class="main">
+            <div class="about-text reveal">
+                <p>Give people the <span>power</span> to build community</p>
+            </div>
+            <img src="https://images.pexels.com/photos/1068205/pexels-photo-1068205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="reveal">
         </div>
-    </div>
+
+        <div class="main">
+        <img src="https://scontent.fmnl4-2.fna.fbcdn.net/v/t39.8562-6/314730002_817565139472772_8622744997054410343_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6825c5&_nc_ohc=ovmu8aogJjkAX8iXL2Y&_nc_ht=scontent.fmnl4-2.fna&oh=00_AfAOuuxxOwTaehi6-4GhqyXy1vECa2IBThRUCykyptKLjg&oe=63EEDC20" alt="" class="reveal">
+        <div class="about-text reveal">
+                <p>and bring the world closer <span>together</span></p>
+            </div>
+        </div>
+
+        <div class="main">
+            <img src="https://scontent.fmnl4-6.fna.fbcdn.net/v/t39.8562-6/314661388_1266205910839814_7482004128031949893_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6825c5&_nc_ohc=FaGZ38KysEUAX86BkUL&_nc_ht=scontent.fmnl4-6.fna&oh=00_AfAV7hJtk4H2ENkGgjJfYf1f6FpBhyD2zecOm8wJeOA-HA&oe=63EFD2C1" alt="" class="reveal">
+        </div>
+    </section>
+
+        <div class="section-1 box">
+            <div class="container reveal">
+                <h1></h1>
+            <p> <strong>We’re commited to fostering a safe and supportive community for everyone</strong></p>
+            <p><strong><span>Community <i class="fa-solid fa-arrow-right" style="margin-left: 20px;"></span></i></strong></p>
+        </div>
+        </div>
+
+        <section class="about">
+        <div id="about"></div>
+        <div class="main">
+            <div class="about-text reveal">
+                <h2>Explore What’s <span>New</span></h2>
+                <h3>Our continuously evolving features empower you to express yourself in new ways.</h3>
+            </div>
+            <img src="https://images.pexels.com/photos/6998799/pexels-photo-6998799.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="reveal">
+        </div>
+
+        <div class="main">
+        <img src="https://images.pexels.com/photos/5082576/pexels-photo-5082576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="reveal">
+        <div class="about-text reveal">
+                 <h2><span>Discover</span> Reels</h2>
+                <h3>Create, share, and watch short, entertaining videos on Instagram.</h3>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="about-text reveal">
+                <h2>Have a <span>conversation</span></h2>
+                <h3>Send messages, photos and videos to a friend or select group of people.</h3>
+            </div>
+            <img src="https://images.pexels.com/photos/3771127/pexels-photo-3771127.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="reveal">
+        </div>
+        
+    </section>
+
+    <section class="endbg">
+         <div class="container reveal">
+            <p>Our community is evolving,</p>
+            <p style="text-align: left;" id="endbgp">so are we</p>
+    </section>
+
+
+
+    <script type="text/javascript">
+        window.addEventListener('scroll', reveal);
+
+        function reveal(){
+            var reveals = document.querySelectorAll('.reveal');
+
+            for(var i = 0; i < reveals.length; i++){
+
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+
+                if(revealtop < windowheight - revealpoint){
+                    reveals[i].classList.add('active');
+                }
+                else{
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+    </script>
 </body>
 </html>
