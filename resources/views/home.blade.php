@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-3">
     <div class="row justify-content-center">
         <!-- Sidebar -->
         @include('layouts.sidebar')
         <div class="col-md-6">
-
+            <h2 style="color: #E0DDFA;">Home</h2>
             <!-- If active user successfully posts a shout -->
             @if (session('success'))
             <div class="alert alert-primary" role="alert">
