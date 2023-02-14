@@ -53,7 +53,7 @@
                         <!-- End -->
 
                         <!-- Posting user profile's shouts -->
-                        @foreach($user->shouts as $shout)
+                        @foreach($user->shouts->sortBy('updated_at')->reverse() as $shout)
                         <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                             <div class="card-body">
                                 <h5 class="fw-bold"><a href="{{ route('profile', $shout->user->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ $shout->user->name }}</a><a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
@@ -80,7 +80,7 @@
                                     <input type="hidden" name="shout_id" value="{{ $shout->id }}">
                                     <input type="hidden" name="plus" value="1">
 
-                                    <button type="submit" class="btn btn-sm rounded-pill position-relative" onclick="style='background-color: #634BFF;'" style="background-color: #3B374A; border-color: #634BFF; color: white;">+1
+                                    <button type="submit" class="btn btn-sm rounded-pill position-relative" style="background-color: #3B374A; border-color: #634BFF; color: white;">+1
 
                                         <!-- +1 count -->
                                         @foreach($shout->plus as $plus)

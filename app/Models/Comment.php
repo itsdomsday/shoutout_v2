@@ -17,6 +17,10 @@ class Comment extends Model
         'shout_id'
     ];
 
+    protected $touches = [
+        'shout'
+    ];
+
     public function shout(){
         return $this->belongsTo(Shout::class);
     }

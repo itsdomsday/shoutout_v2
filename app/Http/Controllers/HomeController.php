@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with('shouts', Shout::orderBy('created_at', 'desc')->get());
+        return view('home')->with('shouts', Shout::orderBy('updated_at', 'desc')->get());
     }
 
     public function profile($id){
