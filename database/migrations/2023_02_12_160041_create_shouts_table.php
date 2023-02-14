@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('shouts', function (Blueprint $table) {
             $table->id();
             $table->string('shout');
+            $table->string('image')->nullable()->default(null);
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id');

@@ -21,11 +21,15 @@
 
                         <!-- Shout post option -->
                         <div class="card-body">
-                            <form action="{{ route('post_shout') }}" method="POST">
+                            <form action="{{ route('post_shout') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input class="form-control" placeholder="Shout here!" type="text" name="shout" required>
-                                <button type="submit" class="btn float-end m-2" style="background-color: #634BFF; color: white;">Shout!</button>
+                                <div class="float-end">
+                                    <input type="file" class="form-control d-none" name="image" id="image" accept=".gif, .jpg, .jpeg, .png, .jfif">
+                                    <label for="image">Add a photo</label>
+                                    <button type="submit" class="btn m-2" style="background-color: #634BFF; color: white;">Shout!</button>
+                                </div>
                             </form>
                         </div>
                         <!-- End -->
@@ -56,6 +60,10 @@
                             </h5>
 
                             <p>{{ $shout->shout }}</p>
+
+                            @if(@shout->image != null)
+                                <img class="img-fluid" src="{{ Storage::url('public/images/'.@shout->image) }}">
+                            @endif
                             <small class="float-end fw-light">{{ $shout->created_at->diffForHumans() }}</small>
 
                             <!-- +1 function for each shout -->

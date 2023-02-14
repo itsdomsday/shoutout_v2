@@ -13,6 +13,7 @@ class Shout extends Model
 
     protected $fillable = [
         'shout',
+        'image',
         'user_id'
     ];
 

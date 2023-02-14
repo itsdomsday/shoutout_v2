@@ -45,6 +45,10 @@
                                     @csrf
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                     <input class="form-control" placeholder="Shout here!" type="text" name="shout">
+                                    <div class="float-end">
+                                        <input type="file" class="form-control d-none" name="image" id="image" accept=".gif, .jpg, .jpeg, .png, .jfif">
+                                        <label for="image">Add a photo</label>
+                                    </div>
                                     <button type="submit" class="btn float-end m-1" style="background-color: #634BFF; color: white;">Shout!</button>
                                 </form>
                             </div>
@@ -59,6 +63,7 @@
                                 <h5 class="fw-bold"><a href="{{ route('profile', $shout->user->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ $shout->user->name }}</a><a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
                                     <!-- Dropdown menu for each shout -->
                                     <ul class="dropdown-menu">
+                                        <li><a href="{{ route('viewshout', $shout->id) }}" class="dropdown-item">View Shout</a></li>
                                         <li><a href="{{ route('profile', $shout->user->id) }}" class="dropdown-item">View Profile</a></li>
 
                                         <!-- If shout belongs to active user, delete function present -->
@@ -71,6 +76,10 @@
                                     <!-- End -->
                                 </h5>
                                 <p>{{ $shout->shout }}</p>
+
+                                @if(@shout->image != null)
+                                <img class="img-fluid" src="{{ Storage::url('public/images/'.@shout->image) }}">
+                                @endif
                                 <small class="float-end">{{ $shout->created_at->diffForHumans() }}</small>
 
                                 <!-- +1 function for each shout -->
