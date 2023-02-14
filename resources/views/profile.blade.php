@@ -8,10 +8,10 @@
         <div class="col-md-6">
             <div class="card" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                 <div class="card">
-                    <img src="https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg" class="img-fluid" alt="Responsive image">
+                    <img src="{{ Storage::url('public/images/'.$user->banner) }}" class="img-fluid">
                 </div>
                 <div class="card-body p-5">
-                    <img src="https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" class="rounded-circle float-left img-thumbnail" alt="..." style='width: 100px; height: 100px;'>
+                    <img src="{{ Storage::url('public/images/'.$user->avatar) }}" class="rounded-circle float-left img-thumbnail" style='width: 100px; height: 100px;'>
                     <h1 class="fw-bold pt-3" style="color: #E0DDFA;">{{ $user->name }}</h1>
                     <p style="color: #E0DDFA;">{{ $user->email }}</p>
                     <span class="badge text-bg-dark mb-3">Joined {{ $user->created_at->diffForHumans() }}</span>
@@ -25,7 +25,7 @@
 
                     <!-- Posting user bio -->
                     <p class="lead mt-3 mb-4" style="color: #E0DDFA;">
-                        bios
+                        {{ $user->bios }}
                     </p>
                     <!-- End -->
 

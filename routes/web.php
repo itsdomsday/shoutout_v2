@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PlusController;
 use App\Http\Controllers\FollowController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +30,8 @@ Route::get('/profile/{id}', [HomeController::class, 'profile'])->name('profile')
 Route::get('/viewshout/{id}', [HomeController::class, 'viewshout'])->name('viewshout');
 Route::get('/photos/{id}', [HomeController::class, 'photos'])->name('photos');
 Route::post('/follow', [FollowController::class, 'follow'])->name('follow');
-Route::get('/settings/{id}', [UserController::class, 'settings'])->name('settings');
-
+Route::get('/settings/{id}', [HomeController::class, 'settings'])->name('settings');
+Route::post('/update/{id}', [UserController::class, 'update'])->name('update');
 
 //Shout
 Route::post('/post_shout', [ShoutController::class, 'post_shout'])->name('post_shout');

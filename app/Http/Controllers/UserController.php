@@ -9,7 +9,7 @@ use Auth;
 
 class UserController extends Controller
 {
-    public function update_user(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $user = User::find($id);
         $user->name = $request->name;
@@ -28,7 +28,7 @@ class UserController extends Controller
 
             $user->avatar = $name1;
         } else {
-            $user->image = null;
+            $user->avatar = null;
         }
 
         if ($request->hasFile('banner')) {
@@ -36,14 +36,14 @@ class UserController extends Controller
                 'banner' => 'required|image|mimes:jpeg,jpg,gif,png,jfif|max:2048'
             ]);
 
-            $image2 = $request->file('avatar');
+            $image2 = $request->file('banner');
             $name2 = time() . "." . $image2->getClientOriginalExtension();
 
             Storage::putFileAs('public/images', $image2, $name2);
 
             $user->banner = $name2;
         } else {
-            $user->image = null;
+            $user->banner = null;
         }
 
         if ($request->password != $request->confirmpassword){
