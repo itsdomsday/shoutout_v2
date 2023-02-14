@@ -25,7 +25,10 @@
                     </h5>
 
                     <p>{{ $shouts->shout }}</p>
-                    <small class="float-end fw-light">{{ $shouts->created_at->diffForHumans() }}</small>
+
+                    @if($shouts->image != null)
+                        <img class="img-fluid" src="{{ Storage::url('public/images/'.$shouts->image) }}">
+                    @endif
 
                     <!-- +1 function for the shout -->
                     <form action="{{ route('plus_onevs') }}" method="POST">
@@ -34,7 +37,7 @@
                         <input type="hidden" name="shout_id" value="{{ $shouts->id }}">
                         <input type="hidden" name="plus" value="1">
 
-                        <button type="submit" class="btn btn-sm rounded-pill position-relative" onclick="style='background-color: #634BFF;'" style="background-color: #3B374A; border-color: #634BFF; color: white;">+1
+                        <button type="submit" class="btn btn-sm rounded-pill position-relative mt-3" onclick="style='background-color: #634BFF;'" style="background-color: #3B374A; border-color: #634BFF; color: white;">+1
 
                             <!-- +1 count -->
                             @foreach($shouts->plus as $plus)
@@ -43,6 +46,7 @@
                             <!-- End -->
 
                         </button>
+                        <small class="float-end fw-light mt-3">{{ $shouts->created_at->diffForHumans() }}</small>
                     </form>
                     <!-- End -->
 

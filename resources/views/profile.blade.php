@@ -23,7 +23,7 @@
                     <!-- End -->
 
                     <hr />
-                    <a href="#" class="btn m-1 float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">View Photos →</a>
+                    <a href="{{ route('photos', $user->id) }}" class="btn m-1 float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">View Photos →</a>
                 </div>
 
                 <div class="card-body">
@@ -46,8 +46,8 @@
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input class="form-control" placeholder="Shout here!" type="text" name="shout">
                                 <div class="float-end">
-                                    <input type="file" class="form-control d-none" name="image" id="image" accept=".gif, .jpg, .jpeg, .png, .jfif">
-                                    <label for="image">Add a photo</label>
+                                    <input type="file" class="form-control d-none" name="image" id="image" accept=".gif, .jpg, .jpeg, .png, .jfif" onchange="imageupload();">
+                                    <label for="image" id="imagelabel">Add a photo</label>
                                     <button type="submit" class="btn m-2" style="background-color: #634BFF; color: white;">Shout!</button>
                                 </div>
                             </form>

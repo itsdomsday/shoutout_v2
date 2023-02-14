@@ -35,4 +35,8 @@ class HomeController extends Controller
     public function viewshout($id){
         return view('viewshout')->with('shouts', Shout::find($id));
     }
+
+    public function photos($id){
+        return view('photos')->with('user', User::find($id));
+    }
 }

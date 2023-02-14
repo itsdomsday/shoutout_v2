@@ -26,8 +26,8 @@
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input class="form-control" placeholder="Shout here!" type="text" name="shout" required>
                                 <div class="float-end">
-                                    <input type="file" class="form-control d-none" name="image" id="image" accept=".gif, .jpg, .jpeg, .png, .jfif">
-                                    <label for="image">Add a photo</label>
+                                    <input type="file" class="form-control d-none" name="image" id="image" accept=".gif, .jpg, .jpeg, .png, .jfif" onchange="imageupload();">
+                                    <label for="image" id="imagelabel">Add a photo</label>
                                     <button type="submit" class="btn m-2" style="background-color: #634BFF; color: white;">Shout!</button>
                                 </div>
                             </form>

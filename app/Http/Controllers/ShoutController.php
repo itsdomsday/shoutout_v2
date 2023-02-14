@@ -63,6 +63,10 @@ class ShoutController extends Controller
     {
         $shout = Shout::find($id);
 
+        if ($shout->image != null) {
+            Storage::delete('/public/images/' . $shout->image);
+        }
+
         if (Auth::user()->id == $shout->user->id) {
             $shout->delete();
             return redirect()->route('home')->with('success', "Shout deleted.");
@@ -74,6 +78,10 @@ class ShoutController extends Controller
     public function del_shoutpf($id)
     {
         $shout = Shout::find($id);
+
+        if ($shout->image != null) {
+            Storage::delete('/public/images/' . $shout->image);
+        }
 
         if (Auth::user()->id == $shout->user->id) {
             $shout->delete();
