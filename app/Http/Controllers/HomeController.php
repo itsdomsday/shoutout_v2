@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shout;
-use app\Models\User;
+use App\Models\User;
+use App\Models\Follow;
 
 class HomeController extends Controller
 {

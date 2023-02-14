@@ -14,7 +14,14 @@
                     <img src="https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" class="rounded-circle float-left img-thumbnail" alt="..." style='width: 100px; height: 100px;'>
                     <h1 class="fw-bold pt-3" style="color: #E0DDFA;">{{ $user->name }}</h1>
                     <p style="color: #E0DDFA;">{{ $user->email }}</p>
-                    <span class="badge text-bg-dark">Joined {{ $user->created_at->diffForHumans() }}</span>
+                    <span class="badge text-bg-dark mb-3">Joined {{ $user->created_at->diffForHumans() }}</span>
+                    <form action="{{ route('follow') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="following" value="{{ $user->name }}">
+                        <button class="btn btn-sm" type="submit" style="background-color: #634BFF; color: #E0DDFA;">Follow</button>
+                    </form>
+
 
                     <!-- Posting user bio -->
                     <p class="lead mt-3 mb-4" style="color: #E0DDFA;">
@@ -24,6 +31,7 @@
 
                     <hr />
                     <a href="{{ route('photos', $user->id) }}" class="btn m-1 float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">View Photos →</a>
+                    <a href="{{ route('photos', $user->id) }}" class="btn m-1 float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">View Followers →</a>
                 </div>
 
                 <div class="card-body">

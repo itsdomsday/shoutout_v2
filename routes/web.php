@@ -5,6 +5,7 @@ use App\Http\Controllers\ShoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PlusController;
+use App\Http\Controllers\FollowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/profile/{id}', [HomeController::class, 'profile'])->name('profile');
 Route::get('/viewshout/{id}', [HomeController::class, 'viewshout'])->name('viewshout');
 Route::get('/photos/{id}', [HomeController::class, 'photos'])->name('photos');
+Route::post('/follow', [FollowController::class, 'follow'])->name('follow');
 
 
 //Shout
