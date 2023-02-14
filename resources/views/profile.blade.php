@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
         <!-- Sidebar -->
         @include('layouts.sidebar')
-        <div class="col-md-6">
+        <div class="col-10 col-lg-7 ">
             <div class="card" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                 <div class="card">
                     <img src="https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg" class="img-fluid" alt="Responsive image">

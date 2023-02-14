@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-3">
-    <div class="row justify-content-center">
+<div class="container-xl">
+    <div class="row">
         <!-- Sidebar -->
         @include('layouts.sidebar')
-        <div class="col-md-6">
-            <h2 style="color: #E0DDFA;">Home</h2>
+        <div class="col-10 col-lg-7">
+            <h2 style="color: #E0DDFA;"><strong>Home</strong></h2>
             <!-- If active user successfully posts a shout -->
             @if (session('success'))
             <div class="alert alert-primary" role="alert">
@@ -24,8 +24,8 @@
                             <form action="{{ route('post_shout') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                <input class="form-control" placeholder="Shout here!" type="text" name="shout" required>
-                                <button type="submit" class="btn float-end m-2" style="background-color: #634BFF; color: white;">Shout!</button>
+                                <textarea class="form-control" placeholder="Shout here!" type="text" name="shout" required></textarea>
+                                <button type="submit" class="btn-float-end m-2 rounded" style="background-color: #634BFF; color: white;">Shout!</button>
                             </form>
                         </div>
                         <!-- End -->
