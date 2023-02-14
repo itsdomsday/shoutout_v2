@@ -8,11 +8,7 @@
                         {{ session('status') }}
                     </div>
                     @endif
-
-                    <footer>
-                        <hr>
-                        <p class="text-center"><small>© 2023 ShoutOut</small></p>
-                    </footer>
                 </div>
             </div>
+            @include('layouts.footer')
         </div>
