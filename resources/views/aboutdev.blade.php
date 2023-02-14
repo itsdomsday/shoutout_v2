@@ -14,12 +14,12 @@
             margin: 0;
             box-sizing: border-box;
             font-family: 'Roboto Slab', serif;
+            background: #151419;
         }
         .about{
             width: 100%;
             padding: 78px 0px;
-            background: #151419;
-        }
+           }
 
         .about img{
             height: auto;
@@ -103,14 +103,51 @@
             margin-bottom: 25px;
             letter-spacing: 2px;
         }
+
+        .reveal{
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: all 2s ease;
+        }
+
+        .reveal.active{
+            transform: translateY(0px);
+            opacity: 1;
+        }
+
+        @media all and (max-width: 990px){
+            .about-text{
+                font-size: 10px;
+            }
+            .about img{
+                display: none;
+            }
+
+            .about-text p{
+                font-size: 20px;
+                margin-left: 10px;
+            }
+        }
+
+        @media all and (max-width: 500px){
+            .about img{
+                overflow: hidden;
+            }
+
+            .about-text p{
+                font-size: 20px;
+                margin-left: 10px;
+            }
+        }
     </style>
 </head>
 <body>
     <section class="about">
-        <div id="about"><h1>About Us</h1></div>
-        <div class="main">
-            <img src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t1.6435-9/120884589_3437139343010929_1813403520474313023_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHreeEJSpeuDjEv2kgA0NfTTccbERRTfOFNxxsRFFN84S240eYfGm3wLNlnNaxhIEQPR-hQo_-9SVK0_g7AIZB9&_nc_ohc=2ioHo3n4JfcAX9jlmK_&tn=PG8xZUVhGYfxbvTx&_nc_ht=scontent.fmnl4-3.fna&oh=00_AfBVwsjPEWwCskKK4yPLXcFjX1fogrzhNZHAd9yMeEz_yw&oe=64104DBF" alt="">
-            <div class="about-text">
+        <div id="about"><h1 class="reveal">About Developers</h1></div>
+        <div class="main"  style="margin-top: 100px;">
+            <img src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t1.6435-9/120884589_3437139343010929_1813403520474313023_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHreeEJSpeuDjEv2kgA0NfTTccbERRTfOFNxxsRFFN84S240eYfGm3wLNlnNaxhIEQPR-hQo_-9SVK0_g7AIZB9&_nc_ohc=2ioHo3n4JfcAX9jlmK_&tn=PG8xZUVhGYfxbvTx&_nc_ht=scontent.fmnl4-3.fna&oh=00_AfBVwsjPEWwCskKK4yPLXcFjX1fogrzhNZHAd9yMeEz_yw&oe=64104DBF" alt="" class="reveal">
+            <div class="about-text reveal">
                 <h5 id="name">Ron Fortuno</h5>
                 <h4>Developer <span>& Designer</span></h4>
                 <p>is a writer, speaker, and entrepreneur who has been featured on several list of publications like Harper Collins, Simon & Schuster, Macmillan and several list of podcasts. He's also the founder of Super Slime Company, where he helps people achieve their goals by using the power of social media.</p>
@@ -118,19 +155,19 @@
             </div>
         </div>
 
-        <div class="main" style="margin-top: 75px;">
-        <div class="about-text">
+        <div class="main" style="margin-top: 300px;">
+        <div class="about-text reveal">
                 <h5 id="name">Dominic Cristobal</h5>
                 <h4>Developer <span>& CEO</span></h4>
                 <p>is a writer, speaker, and entrepreneur who has been featured on several list of publications like Harper Collins, Simon & Schuster, Macmillan and several list of podcasts. He's also the founder of Super Slime Company, where he helps people achieve their goals by using the power of social media.</p>
                 <button type="button">Let's Talk</button>
             </div>
-            <img src="https://scontent.fmnl25-3.fna.fbcdn.net/v/t39.30808-6/299094988_10223276562522400_1265867788568038610_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeE0roSxRboGrjndamWDDn00pPNpn7q9eCak82mfur14JkQl8FCa_XzR95r5Mr_ldb8PAUNYEZinYV4PdRUlfWg6&_nc_ohc=9sfjcIhvn28AX-js_yI&_nc_ht=scontent.fmnl25-3.fna&oh=00_AfAgyE8f7iVKEuIwpW1Ya5bVEbDqEfrmVEgJCDMfYn2PkQ&oe=63ED9B05" alt="">
+            <img src="https://scontent.fmnl25-3.fna.fbcdn.net/v/t39.30808-6/299094988_10223276562522400_1265867788568038610_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeE0roSxRboGrjndamWDDn00pPNpn7q9eCak82mfur14JkQl8FCa_XzR95r5Mr_ldb8PAUNYEZinYV4PdRUlfWg6&_nc_ohc=9sfjcIhvn28AX-js_yI&_nc_ht=scontent.fmnl25-3.fna&oh=00_AfAgyE8f7iVKEuIwpW1Ya5bVEbDqEfrmVEgJCDMfYn2PkQ&oe=63ED9B05" alt="" class="reveal">
         </div>
 
-        <div class="main" style="margin-top: 100px;">
-            <img src="https://scontent.fmnl4-2.fna.fbcdn.net/v/t31.18172-8/27023815_1993974193949564_1854601993845297776_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeE6Wq5isWC1HXuB6YioFlYBwKbh3xLDdgnApuHfEsN2CZY8mftABKgM5fwOzXK7RumxbS43DDA4seqiUY__Ycf9&_nc_ohc=ahAjA9IBQMcAX8Ph1h8&_nc_ht=scontent.fmnl4-2.fna&oh=00_AfCyY9gq7ZOtSvZVS-RWEnQywEPJrZGXHqkCmGM12WW9ag&oe=64104F00" alt="">
-            <div class="about-text">
+        <div class="main" style="margin-top: 300px; ">
+            <img src="https://scontent.fmnl4-2.fna.fbcdn.net/v/t31.18172-8/27023815_1993974193949564_1854601993845297776_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeE6Wq5isWC1HXuB6YioFlYBwKbh3xLDdgnApuHfEsN2CZY8mftABKgM5fwOzXK7RumxbS43DDA4seqiUY__Ycf9&_nc_ohc=ahAjA9IBQMcAX8Ph1h8&_nc_ht=scontent.fmnl4-2.fna&oh=00_AfCyY9gq7ZOtSvZVS-RWEnQywEPJrZGXHqkCmGM12WW9ag&oe=64104F00" alt="" class="reveal">
+            <div class="about-text reveal">
                 <h5 id="name">David Quebenco</h5>
                 <h4>Developer <span>& Co-founder</span></h4>
                 <p>is a writer, speaker, and entrepreneur who has been featured on several list of publications like Harper Collins, Simon & Schuster, Macmillan and several list of podcasts. He's also the founder of Super Slime Company, where he helps people achieve their goals by using the power of social media.</p>
@@ -138,5 +175,27 @@
             </div>
         </div>
     </section>
+
+    <script type="text/javascript">
+        window.addEventListener('scroll', reveal);
+
+        function reveal(){
+            var reveals = document.querySelectorAll('.reveal');
+
+            for(var i = 0; i < reveals.length; i++){
+
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+
+                if(revealtop < windowheight - revealpoint){
+                    reveals[i].classList.add('active');
+                }
+                else{
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+    </script>
 </body>
 </html>
