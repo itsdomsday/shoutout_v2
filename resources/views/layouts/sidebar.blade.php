@@ -4,7 +4,7 @@
   <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="{{ url('/home') }}" role="tab" aria-controls="v-pills-home" aria-selected="true" style="color: #E0DDFA;">Home</a>
   <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="{{ route('profile', Auth::user()->id) }}" role="tab" aria-controls="v-pills-profile" aria-selected="false" style="color: #E0DDFA">Profile</a>
   <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #E0DDFA">Messages</a>
-  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false" style="color: #E0DDFA">Settings</a>
+  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="{{ route('settings', Auth::user()->id) }}" role="tab" aria-controls="v-pills-settings" aria-selected="false" style="color: #E0DDFA">Settings</a>
   <div>
   </div class="fixed-bottom" style="left: 0; bottom: 0;">
   <li class="nav-item dropdown" style="list-style-type:none; left: 0; bottom: 0; position absolute">

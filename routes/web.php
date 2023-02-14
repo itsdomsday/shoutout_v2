@@ -29,6 +29,7 @@ Route::get('/profile/{id}', [HomeController::class, 'profile'])->name('profile')
 Route::get('/viewshout/{id}', [HomeController::class, 'viewshout'])->name('viewshout');
 Route::get('/photos/{id}', [HomeController::class, 'photos'])->name('photos');
 Route::post('/follow', [FollowController::class, 'follow'])->name('follow');
+Route::get('/settings/{id}', [UserController::class, 'settings'])->name('settings');
 
 
 //Shout

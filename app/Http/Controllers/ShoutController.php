@@ -31,7 +31,7 @@ class ShoutController extends Controller
         }
 
         $shout->save();
-        return redirect()->route('home')->with('success', "Image uploaded!");
+        return redirect()->route('home')->with('success', "Shout posted!");
     }
 
     public function post_shoutpf(Request $request)
@@ -56,7 +56,7 @@ class ShoutController extends Controller
         }
 
         $shout->save();
-        return redirect()->route('profile', [$shout->user_id])->with('success', "Image uploaded!");
+        return redirect()->route('profile', [$shout->user_id])->with('success', "Shout posted!");
     }
 
     public function del_shout($id)
