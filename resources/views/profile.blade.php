@@ -41,7 +41,7 @@
                     @if ($user->id == Auth::user()->id)
                     <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                         <div class="card-body">
-                            <form action="{{ route('post_shoutpf') }}" method="POST">
+                            <form action="{{ route('post_shoutpf') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input class="form-control" placeholder="Shout here!" type="text" name="shout">
