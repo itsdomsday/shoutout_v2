@@ -43,28 +43,30 @@
                     @foreach($shouts as $shout)
                     <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                         <div class="card-body">
-                            <h5 class="fw-bold"><a href="{{ route('profile', $shout->user->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ $shout->user->name }}</a><a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
-                                <!-- Dropdown menu for each shout -->
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ route('viewshout', $shout->id) }}" class="dropdown-item">View Shout</a></li>
-                                    <li><a href="{{ route('profile', $shout->user->id) }}" class="dropdown-item">View Profile</a></li>
+                            <h5 class="fw-bold"><a href="{{ route('profile', $shout->user->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ $shout->user->name }}</a>
+                            <a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
+                                <div class="float-end">
 
-                                    <!-- If shout belongs to active user, delete function present -->
-                                    @if ($shout->user_id == Auth::user()->id)
-                                    <li><a href="{{ route('del_shout', $shout->id) }}" class="dropdown-item">Delete</a></li>
-                                    @endif
+                                    <!-- Dropdown menu for each shout -->
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ route('viewshout', $shout->id) }}" class="dropdown-item">View Shout</a></li>
+                                        <li><a href="{{ route('profile', $shout->user->id) }}" class="dropdown-item">View Profile</a></li>
+
+                                        <!-- If shout belongs to active user, delete function present -->
+                                        @if ($shout->user_id == Auth::user()->id)
+                                        <li><a href="{{ route('del_shout', $shout->id) }}" class="dropdown-item">Delete</a></li>
+                                        @endif
+                                        <!-- End -->
+
+                                    </ul>
                                     <!-- End -->
-
-                                </ul>
-                                <!-- End -->
-                            </h5>
-
+                                </div>
+                                </h5>
                             <p>{{ $shout->shout }}</p>
 
-                            @if(@shout->image != null)
-                                <img class="img-fluid" src="{{ Storage::url('public/images/'.@shout->image) }}">
+                            @if($shout->image != null)
+                            <img class="img-fluid" src="{{ Storage::url('public/images/'.$shout->image) }}">
                             @endif
-                            <small class="float-end fw-light">{{ $shout->created_at->diffForHumans() }}</small>
 
                             <!-- +1 function for each shout -->
                             <form action="{{ route('plus_one') }}" method="POST">
@@ -73,7 +75,7 @@
                                 <input type="hidden" name="shout_id" value="{{ $shout->id }}">
                                 <input type="hidden" name="plus" value="1">
 
-                                <button type="submit" class="btn btn-sm rounded-pill position-relative" onclick="style='background-color: #634BFF;'" style="background-color: #3B374A; border-color: #634BFF; color: white;">+1
+                                <button type="submit" class="btn btn-sm rounded-pill position-relative mt-3" onclick="style='background-color: #634BFF;'" style="background-color: #3B374A; border-color: #634BFF; color: white;">+1
 
                                     <!-- +1 count -->
                                     @foreach($shout->plus as $plus)
@@ -82,6 +84,7 @@
                                     <!-- End -->
 
                                 </button>
+                                <small class="fw-light float-end mt-3">{{ $shout->created_at->diffForHumans() }}</small>
                             </form>
                             <!-- End -->
 

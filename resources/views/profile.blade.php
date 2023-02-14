@@ -25,129 +25,128 @@
                     <hr />
                     <a href="#" class="btn m-1 float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">View Photos →</a>
                 </div>
-                <div class="card" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                    <div class="card-body p-5">
-                        <h1 class="fw-bold mb-5" style="color: #E0DDFA;">{{ $user->name }}'s shouts</h1>
 
-                        <!-- If active user successfully posts a shout -->
-                        @if (session('success'))
-                        <div class="alert alert-primary" role="alert">
-                            {{ session('success') }}
+                <div class="card-body">
+                    <h1 class="fw-bold m-3" style="color: #E0DDFA;">{{ $user->name }}'s shouts</h1>
+
+                    <!-- If active user successfully posts a shout -->
+                    @if (session('success'))
+                    <div class="alert alert-primary" role="alert">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                    <!-- End -->
+
+                    <!-- If active user views their own profile, posting Shout appears -->
+                    @if ($user->id == Auth::user()->id)
+                    <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
+                        <div class="card-body">
+                            <form action="{{ route('post_shoutpf') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input class="form-control" placeholder="Shout here!" type="text" name="shout">
+                                <div class="float-end">
+                                    <input type="file" class="form-control d-none" name="image" id="image" accept=".gif, .jpg, .jpeg, .png, .jfif">
+                                    <label for="image">Add a photo</label>
+                                    <button type="submit" class="btn m-2" style="background-color: #634BFF; color: white;">Shout!</button>
+                                </div>
+                            </form>
                         </div>
-                        @endif
-                        <!-- End -->
+                    </div>
+                    @endif
+                    <!-- End -->
 
-                        <!-- If active user views their own profile, posting Shout appears -->
-                        @if ($user->id == Auth::user()->id)
-                        <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                            <div class="card-body">
-                                <form action="{{ route('post_shoutpf') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                    <input class="form-control" placeholder="Shout here!" type="text" name="shout">
-                                    <div class="float-end">
-                                        <input type="file" class="form-control d-none" name="image" id="image" accept=".gif, .jpg, .jpeg, .png, .jfif">
-                                        <label for="image">Add a photo</label>
-                                    </div>
-                                    <button type="submit" class="btn float-end m-1" style="background-color: #634BFF; color: white;">Shout!</button>
-                                </form>
-                            </div>
-                        </div>
-                        @endif
-                        <!-- End -->
+                    <!-- Posting user profile's shouts -->
+                    @foreach($user->shouts->sortBy('updated_at')->reverse() as $shout)
+                    <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
+                        <div class="card-body">
+                            <h5 class="fw-bold"><a href="{{ route('profile', $shout->user->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ $shout->user->name }}</a><a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
+                                <!-- Dropdown menu for each shout -->
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('viewshout', $shout->id) }}" class="dropdown-item">View Shout</a></li>
+                                    <li><a href="{{ route('profile', $shout->user->id) }}" class="dropdown-item">View Profile</a></li>
 
-                        <!-- Posting user profile's shouts -->
-                        @foreach($user->shouts->sortBy('updated_at')->reverse() as $shout)
-                        <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                            <div class="card-body">
-                                <h5 class="fw-bold"><a href="{{ route('profile', $shout->user->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ $shout->user->name }}</a><a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
-                                    <!-- Dropdown menu for each shout -->
+                                    <!-- If shout belongs to active user, delete function present -->
+                                    @if ($shout->user_id == Auth::user()->id)
+                                    <li><a href="{{ route('del_shoutpf', $shout->id) }}" class="dropdown-item">Delete</a></li>
+                                    @endif
+                                    <!-- End -->
+
+                                </ul>
+                                <!-- End -->
+                            </h5>
+                            <p>{{ $shout->shout }}</p>
+
+                            @if($shout->image != null)
+                            <img class="img-fluid" src="{{ Storage::url('public/images/'.$shout->image) }}">
+                            @endif
+
+                            <!-- +1 function for each shout -->
+                            <form action="{{ route('plus_onepf') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="shout_id" value="{{ $shout->id }}">
+                                <input type="hidden" name="plus" value="1">
+
+                                <button type="submit" class="btn btn-sm rounded-pill position-relative mt-3" style="background-color: #3B374A; border-color: #634BFF; color: white;">+1
+
+                                    <!-- +1 count -->
+                                    @foreach($shout->plus as $plus)
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ $shout->plus->count() }}</span>
+                                    @endforeach
+                                    <!-- End -->
+
+                                </button>
+                                <small class="float-end fw-light mt-3">{{ $shout->created_at->diffForHumans() }}</small>
+                            </form>
+                            <!-- End -->
+
+                            <hr>
+
+                            <!-- Display comment per shout -->
+                            @foreach($shout->comment as $comment)
+                            <div class="card px-2 pt-2 mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
+                                <small><a href="{{ route('profile', $comment->user->id) }}" style="text-decoration: none; color: #E0DDFA;"><strong>{{ $comment->user->name }}</strong></a>
+                                    <small class="fw-light">{{ $comment->created_at->diffForHumans() }}</small>
+
+                                    <a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
+
+                                    <!-- Dropdown menu for each comment -->
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{ route('viewshout', $shout->id) }}" class="dropdown-item">View Shout</a></li>
-                                        <li><a href="{{ route('profile', $shout->user->id) }}" class="dropdown-item">View Profile</a></li>
+                                        <li><a href="{{ route('profile', $comment->user->id) }}" class="dropdown-item">View Profile</a></li>
 
-                                        <!-- If shout belongs to active user, delete function present -->
-                                        @if ($shout->user_id == Auth::user()->id)
-                                        <li><a href="{{ route('del_shoutpf', $shout->id) }}" class="dropdown-item">Delete</a></li>
+                                        <!-- If comment belongs to active user, delete function present -->
+                                        @if ($comment->user_id == Auth::user()->id)
+                                        <li><a href="{{ route('del_compf', $comment->id) }}" class="dropdown-item">Delete</a></li>
                                         @endif
                                         <!-- End -->
 
                                     </ul>
-                                    <!-- End -->
-                                </h5>
-                                <p>{{ $shout->shout }}</p>
-
-                                @if(@shout->image != null)
-                                <img class="img-fluid" src="{{ Storage::url('public/images/'.@shout->image) }}">
-                                @endif
-                                <small class="float-end">{{ $shout->created_at->diffForHumans() }}</small>
-
-                                <!-- +1 function for each shout -->
-                                <form action="{{ route('plus_onepf') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                    <input type="hidden" name="shout_id" value="{{ $shout->id }}">
-                                    <input type="hidden" name="plus" value="1">
-
-                                    <button type="submit" class="btn btn-sm rounded-pill position-relative" style="background-color: #3B374A; border-color: #634BFF; color: white;">+1
-
-                                        <!-- +1 count -->
-                                        @foreach($shout->plus as $plus)
-                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ $shout->plus->count() }}</span>
-                                        @endforeach
-                                        <!-- End -->
-
-                                    </button>
-                                </form>
+                                </small>
                                 <!-- End -->
 
-                                <hr>
-
-                                <!-- Display comment per shout -->
-                                @foreach($shout->comment as $comment)
-                                <div class="card px-2 pt-2 mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
-                                    <small><a href="{{ route('profile', $comment->user->id) }}" style="text-decoration: none; color: #E0DDFA;"><strong>{{ $comment->user->name }}</strong></a>
-                                        <small class="fw-light">{{ $comment->created_at->diffForHumans() }}</small>
-
-                                        <a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
-
-                                        <!-- Dropdown menu for each comment -->
-                                        <ul class="dropdown-menu">
-                                            <li><a href="{{ route('profile', $comment->user->id) }}" class="dropdown-item">View Profile</a></li>
-
-                                            <!-- If comment belongs to active user, delete function present -->
-                                            @if ($comment->user_id == Auth::user()->id)
-                                            <li><a href="{{ route('del_compf', $comment->id) }}" class="dropdown-item">Delete</a></li>
-                                            @endif
-                                            <!-- End -->
-
-                                        </ul>
-                                    </small>
-                                    <!-- End -->
-
-                                    <small>
-                                        <p>{{ $comment->comment }}</p>
-                                    </small>
-                                </div>
-                                @endforeach
-                                <!-- End -->
-
-                                <!-- Post comment section -->
-                                <form action="{{ route('post_compf') }}" method="POST">
-                                    @csrf
-                                    <input type="text" class="form-control" placeholder="Add a side comment..." name="comment" required>
-                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                    <input type="hidden" name="shout_id" value="{{ $shout->id }}">
-                                    <button type="submit" class="d-none"></button>
-                                </form>
-                                <!-- End -->
-
+                                <small>
+                                    <p>{{ $comment->comment }}</p>
+                                </small>
                             </div>
-                        </div>
-                        @endforeach
-                        <!-- End -->
+                            @endforeach
+                            <!-- End -->
 
+                            <!-- Post comment section -->
+                            <form action="{{ route('post_compf') }}" method="POST">
+                                @csrf
+                                <input type="text" class="form-control" placeholder="Add a side comment..." name="comment" required>
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="shout_id" value="{{ $shout->id }}">
+                                <button type="submit" class="d-none"></button>
+                            </form>
+                            <!-- End -->
+
+                        </div>
                     </div>
+                    @endforeach
+                    <!-- End -->
+
                 </div>
             </div>
         </div>
