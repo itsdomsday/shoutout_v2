@@ -103,7 +103,7 @@
             height: 100vh;
             background-position: center;
             background-size: cover;
-            background-image: url(./img/pexels-pixabay-207896.jpg); 
+            background-image: url(https://images.pexels.com/photos/207896/pexels-photo-207896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); 
             background-attachment: fixed;
         }
 
