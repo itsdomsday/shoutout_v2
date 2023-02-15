@@ -346,8 +346,8 @@
             <p style="color: White; Font-size: 50px; margin-top: 10%">Download for iOS/Android.</p>
         </div>     
         <div class="main" id="main2" style="margin-top: .1%; margin-bottom: 5%">
-            <img src="./img/apple (1).png" style="width: auto; height: 50px; border-radius: 5%;" alt="">
-            <img src="./img/google (1).png" style="width: auto; height: 50px; border-radius: 5%; margin-left : 10px;" alt="">
+            <img src="http://www.steamyconcepts.com/wp-content/uploads/Steamy-Concepts-Mobile-App-Store-Apple-iOS.png" style="width: auto; height: 50px; border-radius: 5%;" alt="">
+            <img src="https://www.ft.com/__origami/service/image/v2/images/raw/https%253A%252F%252Fwww.ft.com%252F__assets%252Fcreatives%252Ftour%252Fapps%252Fgoogle-play-badge-3x.png?source=next-tour-page" style="width: auto; height: 50px; border-radius: 5%; margin-left : 10px;" alt="">
         </div>
 
     <script type="text/javascript">
