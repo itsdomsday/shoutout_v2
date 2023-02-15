@@ -26,7 +26,6 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/profile/{id}', [HomeController::class, 'profile'])->name('profile');
 Route::get('/viewshout/{id}', [HomeController::class, 'viewshout'])->name('viewshout');
-Route::get('/shoutoutabout/{id}', [HomeController::class, 'shoutoutabout'])->name('shoutoutabout');
 
 
 //Shout
