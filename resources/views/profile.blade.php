@@ -6,6 +6,13 @@
         <!-- Sidebar -->
         @include('layouts.sidebar')
         <div class="col-md-6">
+            <!-- If active user successfully posts a shout -->
+            @if (session('success'))
+            <div class="alert alert-primary" role="alert">
+                {{ session('success') }}
+            </div>
+            @endif
+            <!-- End -->
             <div class="card" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                 <div class="card">
                     <img src="{{ Storage::url('public/images/'.$user->banner) }}" class="img-fluid">
@@ -37,14 +44,6 @@
 
                 <div class="card-body">
                     <h1 class="fw-bold m-3" style="color: #E0DDFA;">{{ $user->name }}'s shouts</h1>
-
-                    <!-- If active user successfully posts a shout -->
-                    @if (session('success'))
-                    <div class="alert alert-primary" role="alert">
-                        {{ session('success') }}
-                    </div>
-                    @endif
-                    <!-- End -->
 
                     <!-- If active user views their own profile, posting Shout appears -->
                     @if ($user->id == Auth::user()->id)

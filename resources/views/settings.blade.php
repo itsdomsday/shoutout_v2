@@ -21,18 +21,6 @@
                             <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
                         </div>
                         <div class="mb-3">
-                            <label for="avatar" class="form-label">Profile Picture:</label>
-                            <input class="form-control form-control-sm" id="avatar" name="avatar" type="file" accept=".gif, .jpg, .jpeg, .png, .jfif" value="{{ $user->avatar }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="banner" class="form-label">Banner:</label>
-                            <input class="form-control form-control-sm" id="banner" name="banner" type="file" accept=".gif, .jpg, .jpeg, .png, .jfif" value="{{ $user->banner }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="bios" class="form-label">Bio:</label>
-                            <textarea class="form-control" id="bios" name="bios" rows="3" value="{{ $user->bios }}"></textarea>
-                        </div>
-                        <div class="mb-3">
                             <label for="password" class="form-label">Password:</label>
                             <input type="password" class="form-control" id="password" name="password">
                         </div>

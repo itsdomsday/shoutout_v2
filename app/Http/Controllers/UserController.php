@@ -13,9 +13,22 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->name = $request->name;
-        
         $user->email = $request->email;
 
+        if ($request->password != $request->confirmpassword) {
+            return redirect()->route('settings', Auth::user()->id)->with('success', "Passwords do not match.");
+        } else {
+            $user->password = $request->password;
+        }
+
+        $user->save();
+        return redirect()->route('profile', Auth::user()->id)->with('success', "Account updated!");
+    }
+
+    public function editprof(Request $request, $id)
+    {
+
+        $user = User::find($id);
         if ($request->hasFile('avatar')) {
             $request->validate([
                 'avatar' => 'required|image|mimes:jpeg,jpg,gif,png,jfif|max:2048'
@@ -30,12 +43,7 @@ class UserController extends Controller
         } else {
             $user->avatar = null;
         }
-    }
 
-    public function editprof(Request $request, $id)
-    {
-
-        $user = User::find($id);
         if ($request->hasFile('banner')) {
             $request->validate([
                 'banner' => 'required|image|mimes:jpeg,jpg,gif,png,jfif|max:2048'
@@ -51,12 +59,8 @@ class UserController extends Controller
             $user->banner = null;
         }
 
-        if ($request->password != $request->confirmpassword){
-            return redirect()->route('settings', Auth::user()->id)->with('success', "Passwords do not match.");
-        }
-
         $user->bios = $request->bios;
         $user->save();
-        return redirect()->route('profile', Auth::user()->id)->with('success', "Account updated!");
+        return redirect()->route('profile', Auth::user()->id)->with('success', "Profile updated!");
     }
 }

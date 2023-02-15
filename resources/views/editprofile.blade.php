@@ -14,15 +14,15 @@
                         @csrf
                         <div class="mb-3">
                             <label for="avatar" class="form-label">Profile Picture:</label>
-                            <input class="form-control form-control-sm" id="avatar" name="avatar" type="file" accept=".gif, .jpg, .jpeg, .png, .jfif" value="{{ $user->avatar }}">
+                            <input class="form-control form-control-sm" id="avatar" name="avatar" type="file" accept=".gif, .jpg, .jpeg, .png, .jfif">
                         </div>
                         <div class="mb-3">
                             <label for="banner" class="form-label">Banner:</label>
-                            <input class="form-control form-control-sm" id="banner" name="banner" type="file" accept=".gif, .jpg, .jpeg, .png, .jfif" value="{{ $user->banner }}">
+                            <input class="form-control form-control-sm" id="banner" name="banner" type="file" accept=".gif, .jpg, .jpeg, .png, .jfif">
                         </div>
                         <div class="mb-3">
                             <label for="bios" class="form-label">Bio:</label>
-                            <textarea class="form-control" id="bios" name="bios" rows="3" value="{{ $user->bios }}"></textarea>
+                            <input type="text" class="form-control" id="bios" name="bios" value="{{ $user->bios }}">
                         </div>
                         <button type="submit" class="btn float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">Save</button>
                     </form>
