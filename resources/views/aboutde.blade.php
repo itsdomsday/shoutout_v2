@@ -159,12 +159,25 @@
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg">
-  <a class="navbar-brand" href="#" style="font-size: 40px; color: white;">ShoutOut</a>
+  <a class="navbar-brand" href="#" style="font-size: 40px; color: white;">About Devs</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <a class="nav-link" href="#">About Devs</span></a>
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url('/home') }}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">ProfiLe</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Messages</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Settings</span></a>
+      </li>
+    </ul>
   </div>
 </nav>
     <section class="about">

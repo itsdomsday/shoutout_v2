@@ -263,10 +263,13 @@
         <a class="nav-link" href="{{ url('/home') }}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</span></a>
+        <a class="nav-link" href="#">Messages</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Settings</span></a>
       </li>
     </ul>
   </div>
