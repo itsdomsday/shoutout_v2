@@ -34,6 +34,8 @@ Route::get('/settings/{id}', [HomeController::class, 'settings'])->name('setting
 Route::get('/editprofile/{id}', [HomeController::class, 'editprofile'])->name('editprofile');
 Route::post('/update/{id}', [UserController::class, 'update'])->name('update');
 Route::post('/editprof/{id}', [UserController::class, 'editprof'])->name('editprof');
+Route::get('/aboutde/{id}', [HomeController::class, 'aboutde'])->name('aboutde');
+Route::get('/shoutoutabout/{id}', [HomeController::class, 'shoutoutabout'])->name('shoutoutabout');
 
 //Shout
 Route::post('/post_shout', [ShoutController::class, 'post_shout'])->name('post_shout');

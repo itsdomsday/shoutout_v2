@@ -53,4 +53,12 @@ class HomeController extends Controller
     public function photos($id){
         return view('photos')->with('user', User::find($id))->with('shouts', Shout::orderBy('updated_at', 'desc')->get());
     }
+
+    public function shoutoutabout($id){
+        return view('shoutoutabout')->with('shoutoutabout', Shout::find($id));
+    }
+
+    public function aboutde($id){
+        return view('aboutde')->with('aboutde', Shout::find($id));
+    }
 }

@@ -10,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <title>ShoutOut</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
         body{
             
             background: #151419;
@@ -20,7 +19,6 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-            font-family: 'Roboto Slab', serif;
         }
         .about{
             width: 100%;
@@ -262,13 +260,16 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="{{ url('/home') }}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="{{ url('/home') }}">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</span></a>
+        <a class="nav-link" href="{{ url('/home') }}">Message</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/home') }}">Settings</span></a>
       </li>
     </ul>
   </div>
