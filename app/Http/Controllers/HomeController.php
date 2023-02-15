@@ -35,4 +35,12 @@ class HomeController extends Controller
     public function viewshout($id){
         return view('viewshout')->with('shouts', Shout::find($id));
     }
+
+    public function shoutoutabout($id){
+        return view('shoutoutabout')->with('shoutoutabout', Shout::find($id));
+    }
+
+    public function aboutde($id){
+        return view('aboutde')->with('aboutde', Shout::find($id));
+    }
 }

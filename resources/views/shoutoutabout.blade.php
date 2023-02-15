@@ -10,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <title>ShoutOut</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
         body{
             
             background: #151419;
@@ -20,7 +19,6 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-            font-family: 'Roboto Slab', serif;
         }
         .about{
             width: 100%;
@@ -105,7 +103,7 @@
             height: 100vh;
             background-position: center;
             background-size: cover;
-            background-image: url(./img/pexels-pixabay-207896.jpg); 
+            background-image: url(https://images.pexels.com/photos/1000444/pexels-photo-1000444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); 
             background-attachment: fixed;
         }
 
@@ -262,7 +260,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="{{ url('/home') }}">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
