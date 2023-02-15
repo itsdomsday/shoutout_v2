@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shout;
+use Illuminate\Support\Facades\Storage;
 use Auth;
 
 class ShoutController extends Controller
@@ -13,22 +14,33 @@ class ShoutController extends Controller
         $shout = new Shout;
         $shout->shout = $request->shout;
         $shout->user_id = $request->user_id;
-        $shout->save();
-        return redirect()->route('home')->with('success', "New shout posted!");
-    }
 
-    public function post_shoutpf(Request $request)
-    {
-        $shout = new Shout;
-        $shout->shout = $request->shout;
-        $shout->user_id = $request->user_id;
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,jpg,gif,png,jfif|max:2048'
+            ]);
+
+            $image = $request->file('image');
+            $name = time() . "." . $image->getClientOriginalExtension();
+
+            Storage::putFileAs('public/images', $image, $name);
+
+            $shout->image = $name;
+        } else {
+            $shout->image = null;
+        }
+
         $shout->save();
-        return redirect()->route('profile', [$shout->user_id])->with('success', "New shout posted!");
+        return redirect()->route('profile', [$shout->user_id])->with('success', "Shout posted!");
     }
 
     public function del_shout($id)
     {
         $shout = Shout::find($id);
+
+        if ($shout->image != null) {
+            Storage::delete('/public/images/' . $shout->image);
+        }
 
         if (Auth::user()->id == $shout->user->id) {
             $shout->delete();
@@ -41,6 +53,10 @@ class ShoutController extends Controller
     public function del_shoutpf($id)
     {
         $shout = Shout::find($id);
+
+        if ($shout->image != null) {
+            Storage::delete('/public/images/' . $shout->image);
+        }
 
         if (Auth::user()->id == $shout->user->id) {
             $shout->delete();

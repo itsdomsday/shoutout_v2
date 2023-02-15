@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shout;
-use app\Models\User;
+use App\Models\User;
+use App\Models\Follow;
 
 class HomeController extends Controller
 {
@@ -25,11 +26,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with('shouts', Shout::orderBy('created_at', 'desc')->get());
+        return view('home')->with('shouts', Shout::orderBy('updated_at', 'desc')->get());
     }
 
     public function profile($id){
         return view('profile')->with('user', User::find($id));
+    }
+
+    public function settings($id){
+        return view('settings')->with('user', User::find($id));
+    }
+
+    public function editprofile($id){
+        return view('editprofile')->with('user', User::find($id));
     }
 
     public function viewshout($id){

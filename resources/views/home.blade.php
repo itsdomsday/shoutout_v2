@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-xl">
-    <div class="row">
+<div class="container">
+    <div class="row justify-content-center">
         <!-- Sidebar -->
         @include('layouts.sidebar')
-        <div class="col-10 col-lg-7">
-            <h2 style="color: #E0DDFA;"><strong>Home</strong></h2>
+        <div class="col-md-6">
+
             <!-- If active user successfully posts a shout -->
             @if (session('success'))
             <div class="alert alert-primary" role="alert">
@@ -21,11 +21,15 @@
 
                         <!-- Shout post option -->
                         <div class="card-body">
-                            <form action="{{ route('post_shout') }}" method="POST">
+                            <form action="{{ route('post_shout') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                <textarea class="form-control" placeholder="Shout here!" type="text" name="shout" required></textarea>
-                                <button type="submit" class="btn-float-end m-2 rounded" style="background-color: #634BFF; color: white;">Shout!</button>
+                                <input class="form-control" placeholder="Shout here!" type="text" name="shout" required>
+                                <div class="float-end">
+                                    <input type="file" class="form-control d-none" name="image" id="image" accept=".gif, .jpg, .jpeg, .png, .jfif" onchange="imageupload();">
+                                    <label for="image" id="imagelabel">Add a photo</label>
+                                    <button type="submit" class="btn m-2" style="background-color: #634BFF; color: white;">Shout!</button>
+                                </div>
                             </form>
                         </div>
                         <!-- End -->
@@ -39,24 +43,30 @@
                     @foreach($shouts as $shout)
                     <div class="card mb-3" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">
                         <div class="card-body">
-                            <h5 class="fw-bold"><a href="{{ route('profile', $shout->user->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ $shout->user->name }}</a><a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
-                                <!-- Dropdown menu for each shout -->
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ route('viewshout', $shout->id) }}" class="dropdown-item">View Shout</a></li>
-                                    <li><a href="{{ route('profile', $shout->user->id) }}" class="dropdown-item">View Profile</a></li>
+                            <h5 class="fw-bold"><a href="{{ route('profile', $shout->user->id) }}" style="text-decoration: none; color: #E0DDFA;">{{ $shout->user->name }}</a>
+                            <a href="" class="float-end dropdown-toggle" data-bs-toggle="dropdown" style="text-decoration: none; color: #E0DDFA;"></a>
+                                <div class="float-end">
 
-                                    <!-- If shout belongs to active user, delete function present -->
-                                    @if ($shout->user_id == Auth::user()->id)
-                                    <li><a href="{{ route('del_shout', $shout->id) }}" class="dropdown-item">Delete</a></li>
-                                    @endif
+                                    <!-- Dropdown menu for each shout -->
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ route('viewshout', $shout->id) }}" class="dropdown-item">View Shout</a></li>
+                                        <li><a href="{{ route('profile', $shout->user->id) }}" class="dropdown-item">View Profile</a></li>
+
+                                        <!-- If shout belongs to active user, delete function present -->
+                                        @if ($shout->user_id == Auth::user()->id)
+                                        <li><a href="{{ route('del_shout', $shout->id) }}" class="dropdown-item">Delete</a></li>
+                                        @endif
+                                        <!-- End -->
+
+                                    </ul>
                                     <!-- End -->
-
-                                </ul>
-                                <!-- End -->
-                            </h5>
-
+                                </div>
+                                </h5>
                             <p>{{ $shout->shout }}</p>
-                            <small class="float-end fw-light">{{ $shout->created_at->diffForHumans() }}</small>
+
+                            @if($shout->image != null)
+                            <img class="img-fluid" src="{{ Storage::url('public/images/'.$shout->image) }}">
+                            @endif
 
                             <!-- +1 function for each shout -->
                             <form action="{{ route('plus_one') }}" method="POST">
@@ -65,7 +75,7 @@
                                 <input type="hidden" name="shout_id" value="{{ $shout->id }}">
                                 <input type="hidden" name="plus" value="1">
 
-                                <button type="submit" class="btn btn-sm rounded-pill position-relative" onclick="style='background-color: #634BFF;'" style="background-color: #3B374A; border-color: #634BFF; color: white;">+1
+                                <button type="submit" class="btn btn-sm rounded-pill position-relative mt-3" onclick="style='background-color: #634BFF;'" style="background-color: #3B374A; border-color: #634BFF; color: white;">+1
 
                                     <!-- +1 count -->
                                     @foreach($shout->plus as $plus)
@@ -74,6 +84,7 @@
                                     <!-- End -->
 
                                 </button>
+                                <small class="fw-light float-end mt-3">{{ $shout->created_at->diffForHumans() }}</small>
                             </form>
                             <!-- End -->
 

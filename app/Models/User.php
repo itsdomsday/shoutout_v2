@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function shouts(){
         return $this->hasMany(Shout::class);
     }
+
+    public function follows(){
+        return $this->hasMany(Follow::class);
+    }
 }
