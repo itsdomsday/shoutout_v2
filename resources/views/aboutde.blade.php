@@ -167,13 +167,13 @@
         <a class="nav-link" href="{{ url('/home') }}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/home') }}">ProfiLe</a>
+        <a class="nav-link" href="{{ route('profile', Auth::user()->id) }}">ProfiLe</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/home') }}">Messages</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/home') }}">Settings</span></a>
+        <a class="nav-link" href="{{ route('settings', Auth::user()->id) }}">Settings</span></a>
       </li>
     </ul>
   </div>

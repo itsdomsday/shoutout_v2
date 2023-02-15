@@ -263,13 +263,13 @@
         <a class="nav-link" href="{{ url('/home') }}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/home') }}">Profile</a>
+        <a class="nav-link" href="{{ route('profile', Auth::user()->id) }}">Profile</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/home') }}">Message</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/home') }}">Settings</span></a>
+        <a class="nav-link" href="{{ route('settings', Auth::user()->id) }}">Settings</span></a>
       </li>
     </ul>
   </div>
@@ -291,7 +291,7 @@
         </div>
 
         <div class="main">
-            <img src="https://scontent.fmnl4-6.fna.fbcdn.net/v/t39.8562-6/314661388_1266205910839814_7482004128031949893_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6825c5&_nc_ohc=FaGZ38KysEUAX86BkUL&_nc_ht=scontent.fmnl4-6.fna&oh=00_AfAV7hJtk4H2ENkGgjJfYf1f6FpBhyD2zecOm8wJeOA-HA&oe=63EFD2C1" alt="" class="reveal">
+            <img src="https://images.pexels.com/photos/3280130/pexels-photo-3280130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="reveal">
         </div>
     </section>
 
@@ -349,8 +349,8 @@
             <p style="color: White; Font-size: 50px; margin-top: 10%">Download for iOS/Android.</p>
         </div>     
         <div class="main" id="main2" style="margin-top: .1%; margin-bottom: 5%">
-            <img src="./img/apple (1).png" style="width: auto; height: 50px; border-radius: 5%;" alt="">
-            <img src="./img/google (1).png" style="width: auto; height: 50px; border-radius: 5%; margin-left : 10px;" alt="">
+            <img src="http://www.steamyconcepts.com/wp-content/uploads/Steamy-Concepts-Mobile-App-Store-Apple-iOS.png" style="width: auto; height: 50px; border-radius: 5%;" alt="">
+            <img src="https://www.ft.com/__origami/service/image/v2/images/raw/https%253A%252F%252Fwww.ft.com%252F__assets%252Fcreatives%252Ftour%252Fapps%252Fgoogle-play-badge-3x.png?source=next-tour-page" style="width: auto; height: 50px; border-radius: 5%; margin-left : 10px;" alt="">
         </div>
 
     <script type="text/javascript">
