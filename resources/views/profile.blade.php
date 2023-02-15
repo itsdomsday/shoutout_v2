@@ -31,7 +31,8 @@
 
                     <hr />
                     <a href="{{ route('photos', $user->id) }}" class="btn m-1 float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">View Photos →</a>
-                    <a href="{{ route('photos', $user->id) }}" class="btn m-1 float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">View Followers →</a>
+                    <a href="{{ route('editprofile', Auth::user()->id) }}" class="btn m-1 float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">Edit Profile →</a>
+                    <a href="#" class="btn m-1 float-end" style="background-color: #3B374A; border-color: #634BFF; color: #E0DDFA;">View Followers →</a>
                 </div>
 
                 <div class="card-body">

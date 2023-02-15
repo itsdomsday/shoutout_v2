@@ -31,7 +31,9 @@ Route::get('/viewshout/{id}', [HomeController::class, 'viewshout'])->name('views
 Route::get('/photos/{id}', [HomeController::class, 'photos'])->name('photos');
 Route::post('/follow', [FollowController::class, 'follow'])->name('follow');
 Route::get('/settings/{id}', [HomeController::class, 'settings'])->name('settings');
+Route::get('/editprofile/{id}', [HomeController::class, 'editprofile'])->name('editprofile');
 Route::post('/update/{id}', [UserController::class, 'update'])->name('update');
+Route::post('/editprof/{id}', [UserController::class, 'editprof'])->name('editprof');
 
 //Shout
 Route::post('/post_shout', [ShoutController::class, 'post_shout'])->name('post_shout');

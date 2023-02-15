@@ -37,6 +37,10 @@ class HomeController extends Controller
         return view('settings')->with('user', User::find($id));
     }
 
+    public function editprofile($id){
+        return view('editprofile')->with('user', User::find($id));
+    }
+
     public function viewshout($id){
         return view('viewshout')->with('shouts', Shout::find($id));
     }
