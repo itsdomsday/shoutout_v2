@@ -29,16 +29,21 @@ class HomeController extends Controller
         return view('home')->with('shouts', Shout::orderBy('updated_at', 'desc')->get());
     }
 
+    public function trending()
+    {
+        return view('trending')->with('shouts', Shout::orderBy('updated_at', 'desc')->get());
+    }
+
     public function profile($id){
-        return view('profile')->with('user', User::find($id));
+        return view('profile')->with('user', User::find($id))->with('shouts', Shout::orderBy('updated_at', 'desc')->get());
     }
 
     public function settings($id){
-        return view('settings')->with('user', User::find($id));
+        return view('settings')->with('user', User::find($id))->with('shouts', Shout::orderBy('updated_at', 'desc')->get());
     }
 
     public function editprofile($id){
-        return view('editprofile')->with('user', User::find($id));
+        return view('editprofile')->with('user', User::find($id))->with('shouts', Shout::orderBy('updated_at', 'desc')->get());
     }
 
     public function viewshout($id){
@@ -46,6 +51,6 @@ class HomeController extends Controller
     }
 
     public function photos($id){
-        return view('photos')->with('user', User::find($id));
+        return view('photos')->with('user', User::find($id))->with('shouts', Shout::orderBy('updated_at', 'desc')->get());
     }
 }
