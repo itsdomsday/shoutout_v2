@@ -31,4 +31,12 @@ class HomeController extends Controller
     public function profile($id){
         return view('profile')->with('user', User::find($id));
     }
+
+    public function viewshout($id){
+        return view('viewshout')->with('shouts', Shout::find($id));
+    }
+
+    public function shoutoutabout($id){
+        return view('shoutoutabout')->with('shoutoutabout', Shout::find($id));
+    }
 }
